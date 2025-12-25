@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-// YOUR CONFIG
+// TODO: Paste your firebaseConfig here
 const firebaseConfig = {
     apiKey: "AIzaSyDmmZr7FuJV39cK_9WqabqS26doV04USgE",
     authDomain: "hemosync-765c9.firebaseapp.com",
@@ -13,7 +13,7 @@ const firebaseConfig = {
     messagingSenderId: "749126382362",
     appId: "1:749126382362:web:8852a1e895edbbea3072a3",
     measurementId: "G-JP1Y2S1LN5"
-  };
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -44,32 +44,36 @@ loginForm.addEventListener('submit', async (e) => {
 
         if (docSnap.exists()) {
             const userData = docSnap.data();
-            const name = userData.fullname;
-            const role = userData.role;
+            const role = userData.role; // This will be "donor", "organiser", etc.
 
             // Success Message
-            alert("Welcome back, " + name + "!\nLogging in as: " + role);
+            alert("Login Success!\nUser: " + userData.fullname + "\nRole: " + role);
 
-            // 3. Redirect based on Role
+            // 3. REDIRECT LOGIC (This is the part that was missing)
             if (role === 'donor') {
                 window.location.href = "donor_home.html";
-            } else if (role === 'admin') {
-                console.log("Redirecting to Admin Dashboard...");
-                alert("Admin Dashboard not created yet!"); 
-            } else {
-                console.log("Redirecting to General Home...");
-                alert("Home page not created yet!");
+            } 
+            else if (role === 'organiser') {  
+                // <--- This is the new line that fixes your problem
+                window.location.href = "organiser_dashboard.html";
+            } 
+            else if (role === 'medical') {
+                alert("Hospital Dashboard coming soon!");
+            }
+            else if (role === 'admin') {
+                alert("Admin Dashboard coming soon!");
+            } 
+            else {
+                alert("Error: Role '" + role + "' is not recognized.");
             }
 
         } else {
-            console.log("No such document!");
-            errorMsg.textContent = "Error: User profile not found in database.";
+            errorMsg.textContent = "Error: User data not found in database.";
         }
 
     } catch (error) {
         console.error("Login Error:", error.code);
         
-        // Simple error handling
         if(error.code === 'auth/user-not-found') {
             errorMsg.textContent = "Account not found. Please Sign Up.";
         } else if (error.code === 'auth/wrong-password') {

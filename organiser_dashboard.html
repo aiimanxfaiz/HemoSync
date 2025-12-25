@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoSync - Organiser</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container dashboard-container">
+        
+        <div class="dashboard-header">
+            <div class="user-info">
+                <h2 id="welcomeName">Hello, Organiser</h2> 
+                <p>Manage your blood drives here.</p>
+            </div>
+            <div class="profile-pic">
+                <i class="fa-solid fa-user-tie"></i>
+            </div>
+        </div>
+
+        <div class="status-card" style="display: block; text-align: center;">
+            <div class="card-text" style="margin-bottom: 15px;">
+                <h3>Plan a New Event</h3>
+                <p>Schedule a new donation event.</p>
+            </div>
+            <button class="btn-login" onclick="window.location.href='create_event.html'">   
+            <i class="fa-solid fa-plus"></i> Create Event
+            </button>
+        </div>
+
+        <div class="menu-grid">
+            
+            <div class="menu-item" onclick="window.location.href='my_events.html'">
+                <div class="icon-box bg-red">
+                <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <span>My Events</span>
+            </div>
+
+            <div class="menu-item" onclick="alert('Feature: Mark Donors as Present/Absent')">
+                <div class="icon-box bg-blue">
+                    <i class="fa-solid fa-clipboard-user"></i>
+                </div>
+                <span>Attendance</span>
+            </div>
+
+            <div class="menu-item" onclick="alert('Feature: View Donation Yield Reports')">
+                <div class="icon-box bg-orange">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <span>Reports</span>
+            </div>
+
+            <div class="menu-item" onclick="alert('Feature: Edit Organiser Profile')">
+                <div class="icon-box bg-green">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <span>Profile</span>
+            </div>
+        </div>
+
+        <button id="logoutBtn" class="btn-logout">Logout</button>
+
+    </div>
+
+    <script type="module" src="organiser_dashboard.js"></script>
+</body>
+</html>

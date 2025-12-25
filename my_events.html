@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoSync - My Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <div class="login-header">
+            <h1>My Published Events</h1>
+            <p>Manage your upcoming blood drives.</p>
+        </div>
+
+        <div id="loadingMessage" style="text-align: center; color: #888;">Loading events...</div>
+        
+        <div id="eventsList" class="events-container">
+            </div>
+
+        <button class="btn-logout" style="margin-top: 20px;" onclick="window.location.href='organiser_dashboard.html'">Back to Dashboard</button>
+    </div>
+
+    <script type="module" src="my_events.js"></script>
+</body>
+</html>

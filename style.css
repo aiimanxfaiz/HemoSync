@@ -297,3 +297,11 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(22px);
 }
+
+/* Styling for the events container */
+.events-container {
+    text-align: left;
+    max-height: 60vh; /* Allows scrolling if list is long */
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
